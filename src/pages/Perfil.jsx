@@ -53,24 +53,30 @@ function Perfil() {
     }
 
     return (
-        <div>
-            <div>
-                <h2>Perfil del usuario</h2>
-                <button onClick={manejarLogOut}>Cerrar Sesión</button>
-            </div>
-
-            {error && <p>{error}</p>}
-
-            {datosPerfil && (
-                <div>
-                    <p>{datosPerfil.Mensaje}</p>
-                    <p>{datosPerfil.Usuario}</p>
-                    <p>{datosPerfil.rol_detectado}</p>
-                    <p>{datosPerfil.status}</p>
-                </div>
-            )}
+    <div className="profile-container">
+        <div className="profile-header">
+            <h2 className="profile-title">
+                <svg className="auth-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                Perfil del usuario
+            </h2>
+            <button className="logout-btn" onClick={manejarLogOut}>
+                <svg className="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                Cerrar Sesión
+            </button>
         </div>
-    )
+
+        {error && <p className="error-message">{error}</p>}
+
+        {datosPerfil && (
+            <div className="profile-card">
+                <p className="profile-info"><strong>Mensaje:</strong> {datosPerfil.Mensaje}</p>
+                <p className="profile-info"><strong>Usuario:</strong> {datosPerfil.Usuario}</p>
+                <p className="profile-info"><strong>Rol:</strong> {datosPerfil.rol_detectado}</p>
+                <p className="profile-info"><strong>Status:</strong> {datosPerfil.status}</p>
+            </div>
+        )}
+    </div>
+)
 
 }
 

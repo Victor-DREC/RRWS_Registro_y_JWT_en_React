@@ -54,36 +54,46 @@ function Login() {
     };
 
     return (
-        <div>
-            <h1>Iniciar Secion</h1>
-            <form onSubmit={manejarSubmit}>
-                <div>
-                    <label>Usuario</label>
-                    <input
-                        type="text"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        required
-                    />
-                </div>
-                <div>
-                    <label>Contraseña</label>
-                    <input
-                        type="text"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                </div>
+    <div className="auth-container">
+        <h1 className="auth-title">
+            <svg className="auth-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13 12H3"/></svg>
+            Iniciar Sesión
+        </h1>
+        <form className="auth-form" onSubmit={manejarSubmit}>
+            <div className="form-group">
+                <label className="form-label">
+                    <svg className="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    Usuario
+                </label>
+                <input
+                    className="form-input"
+                    type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                />
+            </div>
+            <div className="form-group">
+                <label className="form-label">
+                    <svg className="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    Contraseña
+                </label>
+                <input
+                    className="form-input"
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                />
+            </div>
 
-                {err && <p>{err}</p>}
+            {err && <p className="error-message">{err}</p>}
 
-                <button type="submit">Ingresar</button>
-
-            </form>
-            <button type="button" onClick={() => navigate('/registrar')}>Crear cuenta</button>
-        </div>
-    )
+            <button className="auth-button primary-btn" type="submit">Ingresar</button>
+        </form>
+        <button className="auth-button secondary-btn" type="button" onClick={() => navigate('/registrar')}>Crear cuenta</button>
+    </div>
+)
 
 }
 
