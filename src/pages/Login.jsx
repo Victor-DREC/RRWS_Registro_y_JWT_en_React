@@ -81,6 +81,7 @@ function Login() {
                 <button type="submit">Ingresar</button>
 
             </form>
+            <button type="button" onClick={() => navigate('/registro')}>Crear cuenta</button>
         </div>
     )
 
