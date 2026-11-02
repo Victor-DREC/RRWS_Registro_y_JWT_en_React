@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRouter";
 import Login from "./pages/Login";
 import Perfil from "./pages/Perfil";
+import Registrar from "./pages/Registrar"
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path="/perfil" element={<Perfil />} />
           </Route>
           <Route path="*" element={<Navigate to="/login" replace />} />
+          <Route path="/registrar" element={<Registrar />} />
         </Routes>
       </BrowserRouter>
     </AuthProvaider>
